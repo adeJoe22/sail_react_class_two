@@ -4,6 +4,7 @@ import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
+import ProtectedRoute from './ProtectedRoute';
 
 export const router = createBrowserRouter([
   {
@@ -15,16 +16,21 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/home',
-        element: <Home />,
-      },
-      {
-        path: '/about',
-        element: <About />,
-      },
-      {
-        path: '/contact',
-        element: <Contact />,
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: '/home',
+            element: <Home />,
+          },
+          {
+            path: '/about',
+            element: <About />,
+          },
+          {
+            path: '/contact',
+            element: <Contact />,
+          },
+        ],
       },
     ],
   },

@@ -10,7 +10,8 @@ export default function Login() {
   //   password: '',
   // });
 
-  const { formData, updateFormData } = useContext(FormDataContext);
+  const { formData, updateFormData, submittedData } =
+    useContext(FormDataContext);
 
   const { firstname, lastname, imageUrl, email, password } = formData;
   // Event handler to update form data
@@ -28,6 +29,7 @@ export default function Login() {
     e.preventDefault();
     // Pass form data to the parent component
     console.log(formData);
+    // submittedData();
   };
 
   return (
